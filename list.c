@@ -40,6 +40,7 @@ void * firstList(List * list) {
 }
 
 void * nextList(List * list) {
+  if (!list->current) { return(NULL); }
   list->current = list->current->next;
   if (!list->current) { return(NULL); }
   return((void*)list->current->data);
