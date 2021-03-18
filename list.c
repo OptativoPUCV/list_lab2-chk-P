@@ -35,7 +35,9 @@ List * createList() {
 }
 
 void * firstList(List * list) {
+  if (!list->current) { return(NULL); }
   list->current = list->head;
+  if (!list->current) { return(NULL); }
   return((void*)list->current->data);
 }
 
@@ -47,12 +49,16 @@ void * nextList(List * list) {
 }
 
 void * lastList(List * list) {
+  if (!list->current) { return(NULL); }
   list->current = list->tail;
+  if (!list->current) { return(NULL); }
   return((void*)list->current->data);
 }
 
 void * prevList(List * list) {
+  if (!list->current) { return(NULL); }
   list->current = list->current->prev;
+  if (!list->current) { return(NULL); }
   return((void*)list->current->data);
 }
 
