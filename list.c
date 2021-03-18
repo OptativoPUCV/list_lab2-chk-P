@@ -93,6 +93,7 @@ void pushCurrent(List * list, const void * data) {
   Node* temp = list->current;
   Node* next = NULL;
   if (temp) { next = temp->next; }
+  else { return(pushFront(list, data)); }
 
   Node* new_node = createNode(data);
   temp->next = new_node;
