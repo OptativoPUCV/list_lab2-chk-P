@@ -83,3 +83,9 @@ Thu Mar 18 22:57:04 UTC 2021:
  1 file changed, 2 insertions(+)
  tests:  0|0
 771f05f
+Thu Mar 18 22:59:46 UTC 2021: 
+ list.c | 11 +++++++----
+ 1 file changed, 7 insertions(+), 4 deletions(-)
+ tests:  12|0
+total_score: 70/70
+08848af

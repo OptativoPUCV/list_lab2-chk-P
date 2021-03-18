@@ -117,15 +117,18 @@ void * popCurrent(List * list) {
   Node* temp = list->current;
   if (!temp) { return(NULL); }
 
-  Node* prev = temp->prev;
   Node* next = temp->next;
+  Node* prev = temp->prev;
 
-  if (prev) { prev->next = next; }
+  if (temp == list->head) { list->head = next; }
+  if (temp == list->tail) { list->tail = prev; }
+
   if (next) { next->prev = prev; }
+  if (prev) { prev->next = next; }
 
-  const void* temp_data = temp->data;
+  const void* data = temp->data;
   free(temp);
-  return((void*)temp_data); // Fix the declaration! const void*
+  return((void*)data);
 }
 
 void cleanList(List * list) {
