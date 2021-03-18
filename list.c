@@ -62,18 +62,7 @@ void * prevList(List * list) {
 
 void pushFront(List * list, const void * data) {
   Node* new_node = createNode(data);
-  if (list->head)
-  {
-    list->head->prev = new_node;
-    new_node->next = list->head;
-  }
-  else
-  {
-    // There is no head, so the list is empty.
-    list->head = new_node;
-    list->current = new_node;
-    list->tail = new_node;
-  }
+  new_node->next = list->head;
   list->head = new_node;
 }
 
