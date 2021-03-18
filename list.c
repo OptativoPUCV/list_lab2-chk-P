@@ -48,9 +48,24 @@ void * nextList(List * list) {
 }
 
 void * lastList(List * list) {
-  list->current = list->tail;
-  if (!list->current) { return(NULL); }
-  return((void*)list->current->data);
+  Node* temp = list->tail;
+  if (temp)
+  {
+    list->current = temp;
+    return((void*)temp->data);
+  }
+  else
+  {
+    // Tail is NULL, manually search from the current
+    Node* it = list->current;
+    if (!it) { it = list->head; }
+    if (!it) { return(NULL); /* Empty! */ }
+    while(it->next)
+    {
+      it = it->next;
+    }
+    return((void*)it->data);
+  }
 }
 
 void * prevList(List * list) {
