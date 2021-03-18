@@ -94,7 +94,9 @@ void pushCurrent(List * list, const void * data) {
   else
   {
     // Empty?
-    pushFront(list, data);
+    if (list->head) { list->current = list->head; pushCurrent(list, data); }
+    else if (list->tail) { list->current = list->tail; pushCurrent(list, data); }
+    else {pushFront(list, data);}
   }
 }
 
