@@ -72,6 +72,7 @@ void pushFront(List * list, const void * data) {
     // There is no head, so the list is empty.
     list->head = new_node;
     list->current = new_node;
+    list->tail = new_node;
   }
   list->head = new_node;
 }
